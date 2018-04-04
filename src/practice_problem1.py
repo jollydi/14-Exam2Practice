@@ -45,7 +45,7 @@ def main():
     run_test_shrink()
     run_test_double_then_shrink()
     run_test_reset()
-#     run_test_steal()
+    run_test_steal()
 #     run_test_get_history()
 #     run_test_combined_box()
 
@@ -360,12 +360,11 @@ class Box(object):
         #    TIME ESTIMATE:   5 minutes.
         # --------------------------------------------------------------
 
-        self.
-        # self.volume = self.original_volume
-        # if len(self.original_contents) > self.original_volume:
-        #     self.contents = ''
-        # else:
-        #     self.contents = self.original_contents
+        self.volume = self.original_volume
+        if len(self.original_contents) > self.original_volume:
+            self.contents = ''
+        else:
+            self.contents = self.original_contents
 
     def steal(self, other_box):
         """
@@ -399,6 +398,8 @@ class Box(object):
         #    ** TWO **   LINES OF CODE.
         ################################################################
 
+        s = self.append_string(other_box.contents)
+        other_box = Box(s, other_box.volume)
 
 
     def get_history(self):
