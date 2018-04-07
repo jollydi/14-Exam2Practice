@@ -2,8 +2,8 @@
 PRACTICE Test 2, practice_problem 2.
 
 Authors: David Mutchler, Dave Fisher, Valerie Galluzzi, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Isaiah Jolly.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ########################################################################
 # Students:
@@ -42,7 +42,7 @@ def main():
 def run_test_practice_problem2a():
     """ Tests the   practice_problem2a  function. """
     # ------------------------------------------------------------------
-    # TODO: 2. Implement this TEST function.
+    # DONE: 2. Implement this TEST function.
     #   It TESTS the  practice_problem2a  function defined below.
     #   Include at least **   4 reasonable   ** tests.
     #
@@ -55,6 +55,50 @@ def run_test_practice_problem2a():
     print('--------------------------------------------------')
     print('Testing the   practice_problem2a   function:')
     print('--------------------------------------------------')
+
+    # Test 1:
+    integers = [-2, 2, -8, 3, 5]
+    delta = 4
+    expected = [2, 6, -4, 7, 9]
+    actual = practice_problem2a(integers, delta)
+    print('Expected:', expected)
+    print('  Actual:', actual)
+    if expected == actual:
+        print('Test passed SUCCESSFULLY!')
+        print()
+
+    # Test 2:
+    integers = [-2, 2, -8, 3, 5]
+    delta = -2
+    expected = [-4, 0, -10, 1, 3]
+    actual = practice_problem2a(integers, delta)
+    print('Expected:', expected)
+    print('  Actual:', actual)
+    if expected == actual:
+        print('Test passed SUCCESSFULLY!')
+        print()
+
+    # Test 3:
+    integers = [45, 6, 29, 84, 92, 7, 16, 9, 5]
+    delta = 2
+    expected = [47, 8, 31, 86, 94, 9, 18, 11, 7]
+    actual = practice_problem2a(integers, delta)
+    print('Expected:', expected)
+    print('  Actual:', actual)
+    if expected == actual:
+        print('Test passed SUCCESSFULLY!')
+        print()
+
+    # Test 4:
+    integers = [45, 6, 29, 84, 92, 7, 16, 9, 5]
+    delta = -6
+    expected = [39, 0, 23, 78, 86, 1, 10, 3, -1]
+    actual = practice_problem2a(integers, delta)
+    print('Expected:', expected)
+    print('  Actual:', actual)
+    if expected == actual:
+        print('Test passed SUCCESSFULLY!')
+        print()
 
 
 def practice_problem2a(sequence, delta):
@@ -76,13 +120,18 @@ def practice_problem2a(sequence, delta):
       :type delta:    int
     """
     ####################################################################
-    # TODO: 3. Implement and test this function.
+    # DONE: 3. Implement and test this function.
     #     The testing code is already written for you (above).
     ####################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
     #    DIFFICULTY:      5
     #    TIME ESTIMATE:   5 minutes.
     ####################################################################
+
+    new_sequence = []
+    for k in range(len(sequence)):
+        new_sequence = new_sequence + [sequence[k] + delta]
+    return new_sequence
 
 
 def run_test_practice_problem2b():
@@ -170,13 +219,21 @@ def practice_problem2b(sequence):
       :type sequence [str]
     """
     ####################################################################
-    # TODO: 4. Implement and test this function.
+    # DONE: 4. Implement and test this function.
     #     The testing code is already written for you (above).
     ####################################################################
     # DIFFICULTY AND TIME RATINGS (see top of this file for explanation)
     #    DIFFICULTY:      7
     #    TIME ESTIMATE:   10 minutes.
     ####################################################################
+
+    string = ''
+    for k in range(len(sequence)):
+        if sequence[k] == '':
+            pass
+        else:
+            string = string + sequence[k][0]
+    return string
 
 
 # ----------------------------------------------------------------------
