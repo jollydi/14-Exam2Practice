@@ -46,8 +46,8 @@ def main():
     run_test_double_then_shrink()
     run_test_reset()
     run_test_steal()
-#     run_test_get_history()
-#     run_test_combined_box()
+    run_test_get_history()
+    run_test_combined_box()
 
 
 ########################################################################
@@ -106,6 +106,7 @@ class Box(object):
         self.volume = volume
         self.original_volume = volume
         self.original_contents = contents
+        self.history = []
         if len(contents) > volume:
             self.contents = ''
         else:
@@ -360,6 +361,7 @@ class Box(object):
         #    TIME ESTIMATE:   5 minutes.
         # --------------------------------------------------------------
 
+        self.history = self.history + [self.contents]
         self.volume = self.original_volume
         if len(self.original_contents) > self.original_volume:
             self.contents = ''
@@ -385,7 +387,7 @@ class Box(object):
           :type other_box: Box
         """
         # --------------------------------------------------------------
-        # TODO: 8. Implement and test this function.
+        # DONE: 8. Implement and test this function.
         #     The testing code is already written for you (above).
         # --------------------------------------------------------------
         # --------------------------------------------------------------
@@ -399,7 +401,7 @@ class Box(object):
         ################################################################
 
         s = self.append_string(other_box.contents)
-        other_box = Box(s, other_box.volume)
+        other_box.contents = s
 
 
     def get_history(self):
@@ -432,7 +434,7 @@ class Box(object):
           #   h is now ['GoodGo', 'GoodBye']
         """
         # --------------------------------------------------------------
-        # TODO: 9. Implement and test this function.
+        # DONE: 9. Implement and test this function.
         #     The testing code is already written for you (above).
         # --------------------------------------------------------------
         # --------------------------------------------------------------
@@ -440,6 +442,8 @@ class Box(object):
         #    DIFFICULTY:      6
         #    TIME ESTIMATE:   5 minutes.
         # --------------------------------------------------------------
+
+        return self.history
 
     def combined_box(self, other_box):
         """
@@ -458,7 +462,7 @@ class Box(object):
           :type other_box: Box
         """
         # --------------------------------------------------------------
-        # TODO: 10. Implement and test this function.
+        # DONE: 10. Implement and test this function.
         #     The testing code is already written for you (above).
         # --------------------------------------------------------------
         # --------------------------------------------------------------
@@ -466,6 +470,9 @@ class Box(object):
         #    DIFFICULTY:      4
         #    TIME ESTIMATE:   5 minutes.
         # --------------------------------------------------------------
+
+        new_box = Box(self.contents + other_box.contents, self.volume + other_box.volume)
+        return new_box
 
 
 ########################################################################
